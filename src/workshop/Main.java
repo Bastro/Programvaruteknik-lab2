@@ -1,4 +1,4 @@
-package inl2;
+package workshop;
 
 public class Main {
 
