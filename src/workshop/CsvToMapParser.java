@@ -1,5 +1,6 @@
 package workshop;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.owlike.genson.Genson;
@@ -12,27 +13,28 @@ public class CsvToMapParser {
 	public CsvToMapParser(String CsvString){
 		
 		csv = CsvString;		
-		 String[] temp;	
-			temp=csv.split("2014");
-	
-			System.out.println("0 " +temp[0]);
-			System.out.println("1 "+ temp[1]);
-		
 	}
 	
 	 public void getResult() {
 
 		 String[] temp;	
-			temp=csv.split("2014");
+		Map<String,String> map = new HashMap<String, String>();
+			temp=csv.split(";");
 	
-			System.out.println("0 " +temp[0]);
-			System.out.println("1 "+ temp[1]);
-			System.out.println("2 "+ temp[2]);
-			System.out.println("3 "+ temp[3]);
-			System.out.println("4 "+ temp[4]);
-			System.out.println("5 "+ temp[5]);
-			System.out.println("6 "+ temp[6]);
-			System.out.println("7 "+ temp[7]);
+	// fungerar inte för att den sparar inte hella Y 		
+		 for (int i = 0; i < temp.length; i++) {
+			 
+			 
+			 if(temp[i].equals("Y")){
+				System.out.println("key "+temp[i-2]);
+				System.out.println("data "+temp[i-1]);
+				 map.put(temp[i-2], temp[i-1]);
+				 
+			 }
+			 
+			
+		}
+		
 			
 	     //   return new Genson().deserialize(csv, Map.class);
 	    }
