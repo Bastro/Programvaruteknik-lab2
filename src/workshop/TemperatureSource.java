@@ -25,10 +25,12 @@ public class TemperatureSource implements DataSource {
 
 	@Override
 	public Map<LocalDate, Double> getValues() {
-		 UrlFetcher fetcher = new UrlFetcher("http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=2&stationId=107420&period=corrected-archive&includeMetadata=false");
+		 UrlFetcher csvFetcher = new UrlFetcher("http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=2&stationId=107420&period=corrected-archive&includeMetadata=false");
+		 CsvToMapParser parsed = new CsvToMapParser(csvFetcher.getContent());
 		 
-		String f = fetcher.getContent();
-		 System.out.println(f);
+		parsed.getResult( );
+		
+		 System.out.println(parsed);
 		
 		
 		
