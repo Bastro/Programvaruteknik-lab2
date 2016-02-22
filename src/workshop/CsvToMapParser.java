@@ -15,20 +15,21 @@ public class CsvToMapParser {
 		csv = CsvString;		
 	}
 	
-	 public void getResult() {
+	 public Map<String, Double> getResult() {
 
 		 String[] temp;	
-		Map<String,String> map = new HashMap<String, String>();
+		Map<String,Double> map = new HashMap<String, Double>();
 			temp=csv.split(";");
 	
 	// fungerar inte för att den sparar inte hella Y 		
 		 for (int i = 0; i < temp.length; i++) {
 			 
 			 
-			 if(temp[i].equals("Y")){
+			 if(temp[i].startsWith("Y")==true){
+			
 				System.out.println("key "+temp[i-2]);
 				System.out.println("data "+temp[i-1]);
-				 map.put(temp[i-2], temp[i-1]);
+				 map.put(temp[i-2], Double.parseDouble(temp[i-1]));
 				 
 			 }
 			 
@@ -36,7 +37,7 @@ public class CsvToMapParser {
 		}
 		
 			
-	     //   return new Genson().deserialize(csv, Map.class);
+	       return map;
 	    }
 	
 }
