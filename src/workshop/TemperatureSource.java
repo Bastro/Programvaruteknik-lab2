@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.w3c.dom.Text;
@@ -28,9 +29,14 @@ public class TemperatureSource implements DataSource {
 		 UrlFetcher csvFetcher = new UrlFetcher("http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=2&stationId=107420&period=corrected-archive&includeMetadata=false");
 		 CsvToMapParser parsed = new CsvToMapParser(csvFetcher.getContent());
 		Map<String,Double> data = parsed.getResult( );
+		Map<LocalDate,Double> result = new HashMap<LocalDate, Double>();
+		for(int i =0; i<data.size();i++){
+			
+			result.put(LocalDate.parse(data.keySet().toString()),data.get(data.keySet().toString()));
+			
+		}
 		
-		
-		 System.out.println(data.get("2014-01-01"));
+		 System.out.println("hej"+result.get("2014-01-01"));
 		
 		
 		

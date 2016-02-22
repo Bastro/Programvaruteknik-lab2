@@ -21,7 +21,7 @@ public class CsvToMapParser {
 		Map<String,Double> map = new HashMap<String, Double>();
 			temp=csv.split(";");
 	
-	// fungerar inte för att den sparar inte hella Y 		
+	
 		 for (int i = 0; i < temp.length; i++) {
 			 
 			 
