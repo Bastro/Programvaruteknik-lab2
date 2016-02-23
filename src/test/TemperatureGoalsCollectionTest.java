@@ -20,8 +20,8 @@ import workshop.TemperatureSource;
 public class TemperatureGoalsCollectionTest {
 	private Map<LocalDate, Double> temperaturDataMap;
 	private Map<LocalDate, Double> goalDataMap;
-	private FootballGoalsSource footballGoals;
-	private TemperatureSource temperature;
+	private DataSource footballGoals;
+	private DataSource temperature;
 	private DataCollectionBuilder dataCollectionBuilder;
 
 	@Before
