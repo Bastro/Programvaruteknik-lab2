@@ -45,7 +45,6 @@ public class FootballGoalsSource implements DataSource {
 		Map<String, Object> data = parser.getResult();
 		Map<LocalDate, Double> result = new TreeMap<>();
 
-<<<<<<< HEAD
 		for (Map event : (List<Map>) data.get("events")) {
 			String arena = event.get("facts").toString();
 			if (arena.contains(arena)) {
@@ -60,7 +59,7 @@ public class FootballGoalsSource implements DataSource {
 		}
 		return result;
 	}
-=======
+
     private void addGoalsToDate(Map<LocalDate, Double> result, LocalDate date, int goals) {
         if (!result.containsKey(date)) {
             result.put(date, new Double(goals));
@@ -68,33 +67,4 @@ public class FootballGoalsSource implements DataSource {
             result.put(date, result.get(date) + goals);
         }
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
-
-	private void addGoalsToDate(Map<LocalDate, Double> result, LocalDate date,
-			int goals) {
-		if (!result.containsKey(date)) {
-			result.put(date, new Double(goals));
-		} else {
-			result.put(date, result.get(date) + goals);
-		}
-	}
-
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-  
-=======
-    public static void main(String[] args) {
-        System.out.println(new FootballGoalsSource("Strömvallen").getValues());
-    }
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
 }
