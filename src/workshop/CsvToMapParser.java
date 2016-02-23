@@ -18,18 +18,18 @@ public class CsvToMapParser {
 	
 	 public Map<LocalDate, Double> getResult() {
 
-		 String[] temp;	
-		Map<LocalDate,Double> map = new HashMap<LocalDate, Double>();
-			temp=csv.split(";");
+		 String[] commaSplit;	
+		Map<LocalDate,Double> value = new HashMap<LocalDate, Double>();
+			commaSplit=csv.split(";");
 	
-		 for (int i = 0; i < temp.length; i++) {	 
-			 if(temp[i].startsWith("Y")==true){
-				 map.put(LocalDate.parse(temp[i-2]), Double.parseDouble(temp[i-1]));
+		 for (int i = 0; i < commaSplit.length; i++) {	 
+			 if(commaSplit[i].startsWith("Y")){
+				 value.put(LocalDate.parse(commaSplit[i-2]), Double.parseDouble(commaSplit[i-1]));
 			 }	 		
 		}
 		
 			
-	       return map;
+	       return value;
 	    }
 	
 }

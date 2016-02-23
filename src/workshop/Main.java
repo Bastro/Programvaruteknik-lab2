@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import Lab1.DataCollection;
 import Lab1.DataCollectionBuilder;
 import Lab1.ImplDataSource;
 import Lab1.Resolution;
@@ -20,6 +21,7 @@ public class Main {
 		ImplDataSource dataX = new ImplDataSource("Temerature", "C");
 		ImplDataSource dataY = new ImplDataSource("Goal", "z+");
 		dcb = new DataCollectionBuilder(dataX, dataY, Resolution.DAY);
+		DataCollection dc;
 		
 		
 		temperaturDataMap = test.getValues();
@@ -27,19 +29,18 @@ public class Main {
 		
 		for(LocalDate temperaturKey : temperaturDataMap.keySet())
 		{ 
-			dataX.addData(temperaturKey, dataX.getData().get(temperaturKey));
+			dataX.addData(temperaturKey, temperaturDataMap.get(temperaturKey));
 		
 		}
 		for(LocalDate goalKey : goalDataMap.keySet())
 		{ 
-			dataY.addData(goalKey, dataY.getData().get(goalKey));
-		
+			dataY.addData(goalKey, goalDataMap.get(goalKey));
 		}
 		
 		
-		System.out.println(dcb.getResult());
+		dc = dcb.getResult();
 		
-	
+		System.out.println("a  "+dc.getData().toString());
 		
 	}
 

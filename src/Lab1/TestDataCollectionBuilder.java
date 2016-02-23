@@ -17,7 +17,9 @@ public class TestDataCollectionBuilder {
 
 	@Before
 	public void setUp() throws Exception {
-	}
+	}	
+	ImplDataSource xData = new ImplDataSource("Temperature", "C");
+	ImplDataSource yData = new ImplDataSource("Gaols", "Z+");
 
 	@After
 	public void tearDown() throws Exception {
@@ -25,9 +27,6 @@ public class TestDataCollectionBuilder {
 
 	@Test
 	public void testDay() {
-		ImplDataSource xData = new ImplDataSource("Temperature", "C");
-		ImplDataSource yData = new ImplDataSource("Gaols", "Z+");
-	
 
 		xData.addData(LocalDate.of(1994, 05, 27), 37.0);
 
