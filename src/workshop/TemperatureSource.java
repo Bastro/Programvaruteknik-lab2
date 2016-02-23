@@ -10,6 +10,8 @@ import java.util.Map;
 
 import org.w3c.dom.Text;
 
+import Lab1.DataSource;
+
 import com.owlike.genson.convert.DefaultConverters.PrimitiveConverterFactory.longConverter;
 
 public class TemperatureSource implements DataSource {
@@ -27,7 +29,7 @@ public class TemperatureSource implements DataSource {
 	}
 
 	@Override
-	public Map<LocalDate, Double> getValues() {
+	public Map<LocalDate, Double> getData() {
 		 UrlFetcher csvFetcher = new UrlFetcher("http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=2&stationId=107420&period=corrected-archive&includeMetadata=false");
 		 CsvToMapParser parsed = new CsvToMapParser(csvFetcher.getContent());
 		Map<LocalDate,Double> data = parsed.getResult( );

@@ -26,7 +26,8 @@ public class CsvToMapParser {
 	}
 
 	/**
-	 * Create a Map from the given Csv 
+	 * Create a Map from the given Csv
+	 * 
 	 * @return Map<LocalDate, Double>
 	 */
 	public Map<LocalDate, Double> getResult() {

@@ -27,12 +27,9 @@ public class Main {
 		dcb = new DataCollectionBuilder(dataX, dataY, Resolution.DAY);
 		DataCollection dc;
 
-		temperaturDataMap = temperatur.getValues();
-		goalDataMap = goal.getValues();
+		temperaturDataMap = temperatur.getData();
+		goalDataMap = goal.getData();
 
-		
-		
-		
 		for (LocalDate temperaturKey : temperaturDataMap.keySet()) {
 			dataX.addData(temperaturKey, temperaturDataMap.get(temperaturKey));
 
@@ -42,8 +39,6 @@ public class Main {
 		}
 
 		dc = dcb.getResult();
-
-
 
 	}
 

@@ -23,7 +23,7 @@ public class TemperatureSourceTest {
 	@Before
 	public void setUp() throws Exception {
 		temperatureSource = new TemperatureSource();
-		mapWithValues = temperatureSource.getValues();
+		mapWithValues = temperatureSource.getData();
 	}
 
 	@After
@@ -34,7 +34,7 @@ public class TemperatureSourceTest {
 
 	@Test
 	public void testFirstAndLastDateValues() {
-		mapWithValues = temperatureSource.getValues();
+		mapWithValues = temperatureSource.getData();
 		Double valuefirstDate = mapWithValues.get(LocalDate.of(1995, 8, 1));
 		Double valueLastDate = mapWithValues.get(LocalDate.of(2015, 10, 31));
 		assertEquals((double) valuefirstDate, 19.1, 000.1);

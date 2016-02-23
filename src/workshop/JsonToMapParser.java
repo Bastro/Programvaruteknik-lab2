@@ -1,9 +1,7 @@
 package workshop;
 
-
 import com.owlike.genson.Genson;
 import java.util.Map;
-
 
 /**
  *
@@ -11,13 +9,13 @@ import java.util.Map;
  */
 public class JsonToMapParser {
 
-    private final String json;
+	private final String json;
 
-    public JsonToMapParser(String json) {
-        this.json = json;
-    }
-    
-    public Map<String, Object> getResult() {
-        return new Genson().deserialize(json, Map.class);
-    }
+	public JsonToMapParser(String json) {
+		this.json = json;
+	}
+
+	public Map<String, Object> getResult() {
+		return new Genson().deserialize(json, Map.class);
+	}
 }
