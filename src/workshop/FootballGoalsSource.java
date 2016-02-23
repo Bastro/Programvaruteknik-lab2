@@ -10,6 +10,19 @@ import java.util.TreeMap;
  * @author thomas
  */
 public class FootballGoalsSource implements DataSource {
+	private String arena;
+	
+	public FootballGoalsSource(String arena) {
+		this.arena = arena;
+	}
+	
+	public void changeArena(String arena) {
+		this.arena = arena;
+	}
+	
+	public String getArena() {
+		return arena;
+	}
 
     @Override
     public String getName() {
@@ -31,7 +44,7 @@ public class FootballGoalsSource implements DataSource {
         
         for (Map event : (List<Map>) data.get("events")) {
         	String arena = event.get("facts").toString();
-        	if(arena.contains("Strömvallen")){
+        	if(arena.contains(arena)){
             LocalDate date = LocalDate.parse(event.get("startDate").toString().substring(0, 10));
             int goals = Integer.parseInt(event.get("visitingTeamScore").toString());
             goals += Integer.parseInt(event.get("homeTeamScore").toString());
@@ -50,6 +63,6 @@ public class FootballGoalsSource implements DataSource {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FootballGoalsSource().getValues());
+        System.out.println(new FootballGoalsSource("Strömvallen").getValues());
     }
 }
