@@ -39,7 +39,7 @@ public class Main {
 		}
 
 		dc = dcb.getResult();
-		System.out.println(dc);
+	
 
 	}
 
