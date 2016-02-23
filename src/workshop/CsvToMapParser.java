@@ -1,5 +1,6 @@
 package workshop;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +16,10 @@ public class CsvToMapParser {
 		csv = CsvString;		
 	}
 	
-	 public Map<String, Double> getResult() {
+	 public Map<LocalDate, Double> getResult() {
 
 		 String[] temp;	
-		Map<String,Double> map = new HashMap<String, Double>();
+		Map<LocalDate,Double> map = new HashMap<LocalDate, Double>();
 			temp=csv.split(";");
 	
 	
@@ -26,11 +27,7 @@ public class CsvToMapParser {
 			 
 			 
 			 if(temp[i].startsWith("Y")==true){
-			
-				System.out.println("key "+temp[i-2]);
-				System.out.println("data "+temp[i-1]);
-				 map.put(temp[i-2], Double.parseDouble(temp[i-1]));
-				 
+				 map.put(LocalDate.parse(temp[i-2]), Double.parseDouble(temp[i-1]));
 			 }
 			 
 			

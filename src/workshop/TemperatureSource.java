@@ -10,6 +10,8 @@ import java.util.Map;
 
 import org.w3c.dom.Text;
 
+import com.owlike.genson.convert.DefaultConverters.PrimitiveConverterFactory.longConverter;
+
 public class TemperatureSource implements DataSource {
 
 	@Override
@@ -28,50 +30,10 @@ public class TemperatureSource implements DataSource {
 	public Map<LocalDate, Double> getValues() {
 		 UrlFetcher csvFetcher = new UrlFetcher("http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=2&stationId=107420&period=corrected-archive&includeMetadata=false");
 		 CsvToMapParser parsed = new CsvToMapParser(csvFetcher.getContent());
-		Map<String,Double> data = parsed.getResult( );
-		Map<LocalDate,Double> result = new HashMap<LocalDate, Double>();
-		for(int i =0; i<data.size();i++){
-			
-			result.put(LocalDate.parse(data.keySet().toString()),data.get(data.keySet().toString()));
-			
-		}
-		
-		 System.out.println("hej"+result.get("2014-01-01"));
-		
-		
-		
-		
-		
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("H:/datalektioner/Programvayteknit tillbehör/tempData.csv"));
-		
-			String line = "";
-			String cvsSplitBy = ";";
-			String[] country = null;
-			while ((line = br.readLine()) != null) {
+		Map<LocalDate,Double> data = parsed.getResult( );
 
-				country = line.split(cvsSplitBy);
-			
-			
 		
-		
-			
-			}
-			
-			System.out.println( country[4]);
-		
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		return null;
+		return data;
 	}
 	
 	
