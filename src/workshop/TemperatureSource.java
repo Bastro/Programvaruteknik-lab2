@@ -17,13 +17,13 @@ public class TemperatureSource implements DataSource {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Temperatur for Gävle";
 	}
 
 	@Override
 	public String getUnit() {
 		// TODO Auto-generated method stub
-		return null;
+		return "C";
 	}
 
 	@Override
