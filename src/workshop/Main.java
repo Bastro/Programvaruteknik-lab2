@@ -21,7 +21,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		TemperatureSource temperatur = new TemperatureSource();
-		FootballGoalsSource goal = new FootballGoalsSource();
+		FootballGoalsSource goal = new FootballGoalsSource("Strömvallen");
 		ImplDataSource dataX = new ImplDataSource("Temerature", "C");
 		ImplDataSource dataY = new ImplDataSource("Goal", "z+");
 		dcb = new DataCollectionBuilder(dataX, dataY, Resolution.DAY);
