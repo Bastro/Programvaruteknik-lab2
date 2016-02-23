@@ -1,4 +1,4 @@
-package Lab1;
+package test;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import Lab1.DataCollectionBuilder;
+import Lab1.ImplDataSource;
+import Lab1.MatchedDataPair;
+import Lab1.Resolution;
 
 public class TestDataCollectionBuilder {
 

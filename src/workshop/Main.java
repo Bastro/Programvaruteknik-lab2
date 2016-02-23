@@ -10,38 +10,41 @@ import Lab1.DataCollectionBuilder;
 import Lab1.ImplDataSource;
 import Lab1.Resolution;
 
+/**
+ * @author ofk14den
+ * @author Jonas Oster
+ */
 public class Main {
 	private static DataCollectionBuilder dcb;
+	private static Map<LocalDate, Double> temperaturDataMap = new HashMap<LocalDate, Double>();
+	private static Map<LocalDate, Double> goalDataMap = new HashMap<LocalDate, Double>();
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Map<LocalDate, Double> temperaturDataMap = new HashMap<LocalDate, Double>();
-		Map<LocalDate, Double> goalDataMap = new HashMap<LocalDate, Double>();
-		TemperatureSource test = new TemperatureSource();
+		TemperatureSource temperatur = new TemperatureSource();
 		FootballGoalsSource goal = new FootballGoalsSource();
 		ImplDataSource dataX = new ImplDataSource("Temerature", "C");
 		ImplDataSource dataY = new ImplDataSource("Goal", "z+");
 		dcb = new DataCollectionBuilder(dataX, dataY, Resolution.DAY);
 		DataCollection dc;
-		
-		
-		temperaturDataMap = test.getValues();
+
+		temperaturDataMap = temperatur.getValues();
 		goalDataMap = goal.getValues();
+
 		
-		for(LocalDate temperaturKey : temperaturDataMap.keySet())
-		{ 
+		
+		
+		for (LocalDate temperaturKey : temperaturDataMap.keySet()) {
 			dataX.addData(temperaturKey, temperaturDataMap.get(temperaturKey));
-		
+
 		}
-		for(LocalDate goalKey : goalDataMap.keySet())
-		{ 
+		for (LocalDate goalKey : goalDataMap.keySet()) {
 			dataY.addData(goalKey, goalDataMap.get(goalKey));
 		}
-		
-		
+
 		dc = dcb.getResult();
-		
-		System.out.println("a  "+dc.getData().toString());
-		
+
+
+
 	}
 
 }

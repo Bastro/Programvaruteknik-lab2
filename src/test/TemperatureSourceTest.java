@@ -13,6 +13,7 @@ import workshop.TemperatureSource;
 
 /**
  * 
+ * @author ofk14den 
  * @author Jonas Öster
  */
 public class TemperatureSourceTest {
