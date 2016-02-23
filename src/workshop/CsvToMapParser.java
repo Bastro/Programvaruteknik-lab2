@@ -22,15 +22,10 @@ public class CsvToMapParser {
 		Map<LocalDate,Double> map = new HashMap<LocalDate, Double>();
 			temp=csv.split(";");
 	
-	
-		 for (int i = 0; i < temp.length; i++) {
-			 
-			 
+		 for (int i = 0; i < temp.length; i++) {	 
 			 if(temp[i].startsWith("Y")==true){
 				 map.put(LocalDate.parse(temp[i-2]), Double.parseDouble(temp[i-1]));
-			 }
-			 
-			
+			 }	 		
 		}
 		
 			
