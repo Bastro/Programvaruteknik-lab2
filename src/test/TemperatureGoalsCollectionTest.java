@@ -14,22 +14,22 @@ import Lab1.DataCollection;
 import Lab1.DataCollectionBuilder;
 import Lab1.ImplDataSource;
 import Lab1.Resolution;
+import workshop.FootballGoalsSource;
+import workshop.TemperatureSource;
 
 public class TemperatureGoalsCollectionTest {
 	private Map<LocalDate, Double> temperaturDataMap;
 	private Map<LocalDate, Double> goalDataMap;
-	private ImplDataSource dataX;
-	private ImplDataSource dataY;
+	private FootballGoalsSource footballGoals;
+	private TemperatureSource temperature;
 	private DataCollectionBuilder dataCollectionBuilder;
 
 	@Before
 	public void setUp() throws Exception {
-		temperaturDataMap = new HashMap<LocalDate, Double>();
-		goalDataMap = new HashMap<LocalDate, Double>();
-		dataX = new ImplDataSource("Temerature", "C");
-		dataY = new ImplDataSource("Goal", "z+");
+		footballGoals = new FootballGoalsSource("Strömvallen");
+		temperature = new TemperatureSource();
 		insertData();
-		dataCollectionBuilder = new DataCollectionBuilder(dataX, dataY, Resolution.DAY);
+		dataCollectionBuilder = new DataCollectionBuilder(footballGoals, temperature, Resolution.DAY);
 	}
 
 	@After
@@ -37,13 +37,8 @@ public class TemperatureGoalsCollectionTest {
 	}
 
 	private void insertData() {
-		for (LocalDate temperaturKey : temperaturDataMap.keySet()) {
-			dataX.addData(temperaturKey, temperaturDataMap.get(temperaturKey));
-
-		}
-		for (LocalDate goalKey : goalDataMap.keySet()) {
-			dataY.addData(goalKey, goalDataMap.get(goalKey));
-		}
+		goalDataMap = footballGoals.getValues();
+		temperaturDataMap = temperature.getValues();
 	}
 
 	@Test
