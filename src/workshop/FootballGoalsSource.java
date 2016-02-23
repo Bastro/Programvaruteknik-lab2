@@ -62,11 +62,5 @@ public class FootballGoalsSource implements DataSource {
         }
     }
 
-<<<<<<< HEAD
-  
-=======
-    public static void main(String[] args) {
-        System.out.println(new FootballGoalsSource("Strömvallen").getValues());
-    }
->>>>>>> origin/master
+
 }
