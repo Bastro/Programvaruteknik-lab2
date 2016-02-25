@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import java.util.Map;
 
 import org.junit.After;
@@ -19,6 +21,7 @@ public class TemperatureGoalsCollectionTest {
 	private DataSource temperature;
 	private DataCollectionBuilder dataCollectionBuilder;
 	private DataCollection datacollection;
+	private Map<String, MatchedDataPair> map;
 
 	@Before
 	public void setUp() throws Exception {
@@ -28,6 +31,7 @@ public class TemperatureGoalsCollectionTest {
 		temperature.getData();
 		dataCollectionBuilder = new DataCollectionBuilder(footballGoals, temperature, Resolution.DAY);
 		datacollection = dataCollectionBuilder.getResult();
+		map = datacollection.getData();
 	}
 
 	@After
@@ -35,10 +39,35 @@ public class TemperatureGoalsCollectionTest {
 	}
 
 	@Test
-	public void test() {
-		Map<String, MatchedDataPair> map = datacollection.getData();
-		System.out.println(map);
-		//map.get(key)
+	public void testDayValue() {
+		double maxError = 0.001;
+		double expectedXValue = 2.0;
+		double expectedYValue = 9.3;
+		
+		assertEquals(expectedXValue, (double) map.get("2014-05-26").getXvalue(), maxError);
+		assertEquals(expectedYValue, (double) map.get("2014-05-26").getYvalue(), maxError);
+	}
+	
+	@Test
+	public void testAllDayValues() {
+		double maxError = 0.001;
+		int gamesAtArenaYear = 14; // Our data only have 14 instead of 15 matches
+		double goalsAtArenaYear = 28.0;
+		double sumTempratureAtGames = 159.4;
+		
+		int countedGamesAtYearArena = 0;
+		double countGaoslAtArenaYear = 0.0;
+		double testSumTempratureAtGames = 0.0;
+		
+		for (String key : map.keySet()) {
+			countedGamesAtYearArena++;
+			countGaoslAtArenaYear += map.get(key).getXvalue();
+			testSumTempratureAtGames += map.get(key).getYvalue();
+		}
+		
+		assertEquals(countedGamesAtYearArena, gamesAtArenaYear);
+		assertEquals(goalsAtArenaYear, countGaoslAtArenaYear, maxError);
+		assertEquals(testSumTempratureAtGames, sumTempratureAtGames, maxError);
 	}
 
 }
