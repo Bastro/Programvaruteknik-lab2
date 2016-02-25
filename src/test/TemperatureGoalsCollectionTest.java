@@ -41,6 +41,7 @@ public class TemperatureGoalsCollectionTest {
 	@Test
 	public void testDayValue() {
 		double maxError = 0.001;
+		
 		double expectedXValue = 2.0;
 		double expectedYValue = 9.3;
 		
@@ -51,6 +52,7 @@ public class TemperatureGoalsCollectionTest {
 	@Test
 	public void testAllDayValues() {
 		double maxError = 0.001;
+		
 		int gamesAtArenaYear = 14; // Our data only have 14 instead of 15 matches
 		double goalsAtArenaYear = 28.0;
 		double sumTempratureAtGames = 159.4;

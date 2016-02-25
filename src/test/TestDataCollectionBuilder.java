@@ -62,13 +62,13 @@ public class TestDataCollectionBuilder {
 
 	}
 
-	private void testOnNames(String xName, String yName) {
+	public void testOnNames(String xName, String yName) {
 
 		assertEquals(xName + "/" + yName, testCollection.getTitle());
 
 	}
 
-	private void testOnUnit(String xUnit, String yUnit) {
+	public void testOnUnit(String xUnit, String yUnit) {
 
 		assertEquals(xUnit, testCollection.getResult().getXUnit());
 		assertEquals(yUnit, testCollection.getResult().getYUnit());

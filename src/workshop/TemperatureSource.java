@@ -1,18 +1,9 @@
 package workshop;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 
-import org.w3c.dom.Text;
-
 import Lab1.DataSource;
-
-import com.owlike.genson.convert.DefaultConverters.PrimitiveConverterFactory.longConverter;
 
 public class TemperatureSource implements DataSource {
 

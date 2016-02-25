@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import workshop.FootballGoalsSource;
-import workshop.TemperatureSource;
-
 /**
  * This class build a collection of data.
  * 
