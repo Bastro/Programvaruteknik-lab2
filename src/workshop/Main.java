@@ -38,7 +38,7 @@ public class Main {
 			dataY.addData(goalKey, goalDataMap.get(goalKey));
 		}
 
-		dc = dcb.getResult();
+		System.out.println(dc = dcb.getResult());
 	
 
 	}
