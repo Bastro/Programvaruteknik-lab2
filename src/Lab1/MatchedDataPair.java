@@ -45,6 +45,6 @@ public class MatchedDataPair {
 	 * in a string
 	 */
 	public String toString(){
-		return "xValue"+ xValue +"yValue"+ yValue;
+		return "[x: " + xValue + ", y: " + yValue + "]";
 	}	
 }
